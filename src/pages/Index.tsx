@@ -1,70 +1,104 @@
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import Navigation from "@/components/Navigation";
 
 const Index = () => {
-  const sections = [
-    {
-      title: "Фитнес-центр",
-      description: "Тренажёры, групповые занятия, персональные тренировки",
-      icon: "Dumbbell",
-      link: "/fitness",
-      gradient: "from-emerald-500 to-teal-600",
-    },
-    {
-      title: "SPA-салон",
-      description: "Массаж, уход за лицом, спа-процедуры",
-      icon: "Sparkles",
-      link: "/spa",
-      gradient: "from-purple-500 to-pink-600",
-    },
-    {
-      title: "Бронирования",
-      description: "Управление бронированиями номеров и столиков",
-      icon: "Calendar",
-      link: "/bookings",
-      gradient: "from-blue-500 to-indigo-600",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-[#F5F5DC]">
       <Navigation />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-6xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            Lime Hotels & Restaurants
+        <div className="text-center mb-12 animate-fade-in">
+          <div className="inline-block bg-[#CDFF00] px-8 py-4 mb-8 rounded-lg">
+            <h2 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              LIME
+            </h2>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#CDFF00]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            Добро пожаловать в LIME
           </h1>
-          <p className="text-2xl text-gray-600" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-            Ваш премиальный отель с полным сервисом
+          
+          <p className="text-xl text-gray-600 mb-12" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+            Выберите, что вас интересует
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {sections.map((section, idx) => (
-            <Link key={idx} to={section.link} className="block animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
-              <Card className="h-full hover-scale transition-all hover:shadow-2xl cursor-pointer">
-                <CardHeader className="text-center pb-4">
-                  <div className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${section.gradient} rounded-2xl flex items-center justify-center transform transition-transform hover:rotate-6`}>
-                    <Icon name={section.icon} size={40} className="text-white" />
-                  </div>
-                  <CardTitle className="text-2xl mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    {section.title}
-                  </CardTitle>
-                  <CardDescription className="text-base" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                    {section.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className={`inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r ${section.gradient} text-white rounded-lg font-semibold`}>
-                    Перейти
-                    <Icon name="ArrowRight" size={18} />
-                  </div>
-                </CardContent>
-              </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+          <Link 
+            to="/hotels" 
+            className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+          >
+            <div className="relative h-80">
+              <img 
+                src="https://cdn.poehali.dev/files/b5467ff7-8a4e-4bd3-bc37-b751538424e9.png"
+                alt="Гостиницы"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <Icon name="Hotel" size={32} className="text-[#CDFF00]" />
+                  <h3 className="text-3xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    Гостиницы
+                  </h3>
+                </div>
+                <p className="text-lg opacity-90" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+                  Комфортное размещение для вашего отдыха
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-4 text-center">
+              <button className="w-full py-3 text-gray-900 font-semibold rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                Выбрать гостиницу
+                <Icon name="ArrowRight" size={18} />
+              </button>
+            </div>
+          </Link>
+
+          <Link 
+            to="/restaurant" 
+            className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+          >
+            <div className="relative h-80">
+              <img 
+                src="https://cdn.poehali.dev/files/b5467ff7-8a4e-4bd3-bc37-b751538424e9.png"
+                alt="Ресторан"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <Icon name="UtensilsCrossed" size={32} className="text-[#CDFF00]" />
+                  <h3 className="text-3xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    Ресторан
+                  </h3>
+                </div>
+                <p className="text-lg opacity-90" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+                  Изысканная кухня и уютная атмосфера
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-4 text-center">
+              <button className="w-full py-3 text-gray-900 font-semibold rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                Перейти в ресторан
+                <Icon name="ArrowRight" size={18} />
+              </button>
+            </div>
+          </Link>
+        </div>
+
+        <div className="text-center animate-fade-in">
+          <p className="text-gray-600 mb-2" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+            Или изучите весь комплекс услуг на{' '}
+            <Link to="/about" className="text-[#CDFF00] hover:underline font-semibold">
+              главной странице
             </Link>
-          ))}
+          </p>
         </div>
       </div>
     </div>
